@@ -1,6 +1,7 @@
 import {FaGithub, FaLinkedinIn, FaInstagram} from "react-icons/fa"
 import MyPhoto from "../../assets/images/eu2m200px.png"
 import "./Cards.css"
+import { Link } from "react-router-dom"
 
 export const Cards = () => {
     return (
@@ -14,9 +15,9 @@ export const Cards = () => {
                     <p className="text_dev">Dev Front-End</p>
                 </div>
                 <ul className="social_icons">
-                    <li><FaGithub  className="item"/></li>
-                    <li><FaLinkedinIn className="item"/></li>
-                    <li><FaInstagram className="item"/></li>
+                    <Link to={"https://github.com/ClecioSousa00"} target="_blank"><FaGithub  className="item"/></Link>
+                    <Link to={"https://github.com/ClecioSousa00"} target="_blank"><FaLinkedinIn className="item"/></Link>
+                    <Link to={"https://github.com/ClecioSousa00"} target="_blank"><FaInstagram className="item"/></Link>
                 </ul>
             </div>
         </div>

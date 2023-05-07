@@ -6,10 +6,10 @@ import './NavBar.css'
 
 export const NavBar = () =>{
     
-    const [menuIsOpen, setMenuIsOpen] = useState(false)
+    const [menuIsOpen, setMenuIsOpen] = useState(() => false)
 
     const openMenu = () =>{
-        setMenuIsOpen(!menuIsOpen)
+        setMenuIsOpen(prevValue => !prevValue)
     }
 
     // const closeMenu = () =>{

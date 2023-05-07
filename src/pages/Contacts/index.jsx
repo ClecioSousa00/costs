@@ -11,8 +11,6 @@ export const Contacts = () =>{
             <Cards/>
             
 
-            {/* <Link to={"https://www.youtube.com/"} target="_blank" >youtube</Link> */}
-
         </>
     )
 }
