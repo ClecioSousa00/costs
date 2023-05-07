@@ -1,7 +1,8 @@
 
 :root{
     --color-primary: #efefef;
-    --color-header-footer: #222;
+    --color-secondary: #222;
     --color-buttons: #ffbb33;
     --color-menu-mobile: #dfa634;
+    --color-text: #767674;
 }
