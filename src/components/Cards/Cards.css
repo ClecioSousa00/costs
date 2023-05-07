@@ -1,0 +1,108 @@
+.container_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-secondary);
+    padding: 3rem 0 4rem;
+    border-radius: 2rem;
+    width: 25rem;
+    height: 30rem;
+}
+
+.card_image {
+    display: inline-block;
+    width: 13rem;
+    margin-bottom: 20px;
+    z-index: 1;
+    position: relative;
+}
+
+.card_image::before {
+    content: "";
+    width: 100%;
+    height: 0;
+    border-radius: 50%;
+    /* background-color: var(--color-buttons); */
+    background-image: linear-gradient(160deg, var(--color-buttons) 0%, var(--color-buttons)100%);
+    position: absolute;
+    z-index: -2;
+    bottom: 135%;
+    right: 0;
+    left: 0;
+    opacity: 0.9;
+    transform: scale(3);
+    transition: all 0.3s linear 0s;
+}
+
+.container_card:hover .card_image::before {
+    height: 100%;
+}
+
+/* .card_image::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--color-buttons);
+    background-image: linear-gradient(160deg, var(--color-buttons) 0%, var(--color-buttons) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+} */
+
+.card_image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    /* transform: scale(1); */
+    transition: all 0.9s ease 0s;
+}
+
+.container_card:hover .card_image img {
+    box-shadow: 0 0 0 5px #f7f5ec;
+    
+}
+
+.text_name {
+    color: #fff;
+}
+
+.text_dev{
+    display: block;
+    font-size: 1.5rem;
+    color: #838383;
+}
+
+.social_icons{
+    display: flex;
+    justify-content: center;
+    gap: 2.4rem;
+    background-color: var(--color-menu-mobile);
+    position: absolute;
+    bottom: -10rem;
+    width: 100%;
+    padding: .5rem;
+    transition: all .5s ease-in-out;
+}
+
+.container_card:hover .social_icons{
+    bottom: 0;
+}
+.item{
+    color: #fff;
+    font-size: 2rem;
+    transition: all .3s ease-in-out;
+}
+
+.item:hover {
+    scale: 1.2;
+}
+
+
+
