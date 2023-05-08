@@ -1,0 +1,15 @@
+.submit_button{
+    outline: none;
+    border: none;
+    background-color: var(--color-buttons);
+    padding: .8rem 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    transition: all .3s ease-in-out;
+}
+
+.submit_button:hover{
+    background-color: var(--color-secondary);
+    color: var(--color-buttons);
+    scale: 1.1;
+}

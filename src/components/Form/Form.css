@@ -1,0 +1,16 @@
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    width: 25rem;
+}
+
+.form_input, .form_select{
+    border: none;
+    outline: none;
+    height: 3rem;
+    width: 100%;
+}

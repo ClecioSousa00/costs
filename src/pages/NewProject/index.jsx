@@ -1,10 +1,17 @@
 import { Header } from "../../components/Header"
+import {Form} from "../../components/Form"
 
-export const NewProject = () =>{
-    return(
+export const NewProject = () => {
+    return (
         <>
-            <Header/>
-            <h1>New Projext</h1>
+            <Header />
+            <main>
+                <section className="section">
+                    <h1 className="title">Criar Projetos</h1>
+                    <p className="text">Crie seu projeto para adicionar serviços</p>
+                    <Form/>
+                </section>
+            </main>
         </>
     )
 }

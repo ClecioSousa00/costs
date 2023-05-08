@@ -1,8 +1,8 @@
 .button_link{
-    background-color: var(--color-buttons);
-    padding: 0.5rem 1.5rem;
+    background-color: var(--color-secondary);
+    padding: 0.8rem 1.5rem;
     font-weight: 700;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: #fff;
     transition: all .4s ease-in-out;
 }

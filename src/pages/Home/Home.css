@@ -1,22 +1,22 @@
 
-.section_home{
+.section{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 3rem;
+    margin-top: 4rem;
 }
 
-.title_home {
+.title {
     font-size: 2.4rem;
 }
-.title_home span{
+.title span{
     background-color: var(--color-secondary);
     color: var(--color-buttons);
     padding: .8rem;
 }
 
-.text_home{
-    margin: 3rem 0 1rem;
+.text{
+    margin: 2rem 0 1rem;
     font-weight: 700;
     font-size: 1.4rem;
     color: var(--color-text);
