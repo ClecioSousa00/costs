@@ -8,9 +8,11 @@
     width: 25rem;
 }
 
+
 .form_input, .form_select{
     border: none;
     outline: none;
     height: 3rem;
     width: 100%;
+    padding: .5rem;
 }
