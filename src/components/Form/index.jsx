@@ -1,21 +1,25 @@
 import { useState } from "react"
 import { SubmitButton } from "../SubmitButton"
 import "./Form.css"
+import { useNavigate } from "react-router-dom"
 
 export const Form = ({handleSubmit, projectData, categories}) =>{
 
     const [project, setProject] = useState(projectData || {})
+    const navigate = useNavigate()
 
     const submitForm = (event) =>{
         event.preventDefault()
         handleSubmit(project)
         console.log(project);
+        navigate("/Projetos")
     }
 
     const handleChange = (event) =>{
         setProject({...project, [event.target.name]: event.target.value})
     }
 
+ 
     return(
         <form className="form" onSubmit={submitForm}>
             <input 
@@ -36,7 +40,7 @@ export const Form = ({handleSubmit, projectData, categories}) =>{
                 <option>Selecione uma opcao</option>
                 {categories.map(categorie => <option key={categorie.id} value={categorie.id}>{categorie.name}</option>)}
             </select> */}
-            <SubmitButton text="Criar Projeto"/>
+            <SubmitButton  text="Criar Projeto"/>
         </form>
     )
 }
