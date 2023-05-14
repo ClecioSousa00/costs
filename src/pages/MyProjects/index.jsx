@@ -8,7 +8,7 @@ import { ProjectCard } from "../../components/ProjectCard"
 
 export const MyProjects =() =>{
 
-    const [preojects, setProjects] = useState([])
+    const [projects, setProjects] = useState([])
 
     useEffect(() => {
         console.log('aquiGet')
@@ -26,6 +26,18 @@ export const MyProjects =() =>{
             .catch(err => console.log('Erro'))
     }, [])
 
+    const generateCardsProject = (projects) =>{
+        
+        return (projects.map(project => <ProjectCard 
+            id={project.id} 
+            name={project.nameproject} 
+            budget={project.budgetValue}
+            key={project.id}
+            />
+        ))
+        
+    }
+
 
     return(
         <>
@@ -36,7 +48,7 @@ export const MyProjects =() =>{
                     <LinkButton to="/Novo-Projeto" text="Criar Projeto"/>
                 </div>
                <section>
-                    <ProjectCard/>
+                    {projects && generateCardsProject(projects)}
                </section>
             </main>
         </>
