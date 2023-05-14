@@ -1,0 +1,35 @@
+.card_project{
+    border: 1px solid var(--color-secondary);
+    height: 20rem;
+    width: 25rem;
+    padding: 1.5rem;
+    margin-top: 3rem;
+}
+
+.title_project{
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-buttons);
+    background-color: var(--color-secondary);
+    padding: 1rem;
+    text-align: center;
+}
+
+.card_project p{
+    font-size: 1.4rem;
+    margin: .8rem 0;
+}
+
+.button_project{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3rem;
+}
+
+.button_project button{
+    padding: .5rem;
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+
+}
