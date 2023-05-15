@@ -33,9 +33,21 @@ export const MyProjects =() =>{
             name={project.nameproject} 
             budget={project.budgetValue}
             key={project.id}
+            handleRemove={removeProjects}
             />
         ))
-        
+    }
+
+    const removeProjects = (id) =>{
+        fetch(`http://localhost:5000/projects/${id}`, {
+            method: 'DELETE',
+            headers:{
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(() => setProjects(projects.filter(project => project.id !== id)))
+        .catch(err => console.log("erro ao excluir"))
     }
 
 
@@ -47,7 +59,7 @@ export const MyProjects =() =>{
                     <h1>Meus projetos</h1>
                     <LinkButton to="/Novo-Projeto" text="Criar Projeto"/>
                 </div>
-               <section>
+               <section className="container_projects">
                     {projects && generateCardsProject(projects)}
                </section>
             </main>

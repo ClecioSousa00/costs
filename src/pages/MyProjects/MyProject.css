@@ -4,3 +4,11 @@
     align-items: center;
     padding-top: 3rem;
 }
+
+.container_projects{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+   
+}

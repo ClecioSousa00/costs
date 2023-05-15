@@ -1,51 +1,16 @@
 {
   "projects": [
     {
-      "nameproject": "desenvolver site",
-      "budgetValue": "3000",
-      "cost": 0,
-      "services": [],
-      "id": 1
-    },
-    {
-      "nameproject": "desenvolver design do site",
-      "budgetValue": "4000",
-      "cost": 0,
-      "services": [],
-      "id": 2
-    },
-    {
-      "nameproject": "projeto 2",
-      "budgetValue": "5555",
-      "cost": 0,
-      "services": [],
-      "id": 3
-    },
-    {
       "cost": 0,
       "services": [],
       "id": 4
     },
     {
       "nameproject": "desenvolver site",
-      "budgetValue": "888",
+      "budgetValue": "10000",
       "cost": 0,
       "services": [],
       "id": 5
-    },
-    {
-      "nameproject": "desenvolver site",
-      "budgetValue": "888",
-      "cost": 0,
-      "services": [],
-      "id": 6
-    },
-    {
-      "nameproject": "desenvolver site",
-      "budgetValue": "999",
-      "cost": 0,
-      "services": [],
-      "id": 7
     }
   ],
   "categories": [
