@@ -3,7 +3,7 @@ import { SubmitButton } from "../SubmitButton"
 import "./Form.css"
 import { useNavigate } from "react-router-dom"
 
-export const Form = ({handleSubmit, projectData, categories}) =>{
+export const Form = ({handleSubmit, projectData, textBtn}) =>{
 
     const [project, setProject] = useState(projectData || {})
     const navigate = useNavigate()
@@ -23,7 +23,8 @@ export const Form = ({handleSubmit, projectData, categories}) =>{
     return(
         <form className="form" onSubmit={submitForm}>
             <input 
-                className="form_input" 
+                className="form_input"
+                value={project ? project.nameproject : ''} 
                 type="text" 
                 name="nameproject" 
                 placeholder="Nome do Projeto"
@@ -31,6 +32,7 @@ export const Form = ({handleSubmit, projectData, categories}) =>{
             />
             <input 
                 className="form_input" 
+                value={project ? project.budgetValue : ''} 
                 type="number" 
                 name="budgetValue" 
                 placeholder="Orçamento do Projeto"
@@ -38,6 +40,7 @@ export const Form = ({handleSubmit, projectData, categories}) =>{
             />
             <input 
                 className="form_input" 
+                value={project ? project.categorie : ''} 
                 type="text" 
                 name="categorie" 
                 placeholder="Categoria do Projeto"
@@ -47,7 +50,7 @@ export const Form = ({handleSubmit, projectData, categories}) =>{
                 <option>Selecione uma opcao</option>
                 {categories.map(categorie => <option key={categorie.id} value={categorie.id}>{categorie.name}</option>)}
             </select> */}
-            <SubmitButton  text="Criar Projeto"/>
+            <SubmitButton  text={textBtn}/>
         </form>
     )
 }

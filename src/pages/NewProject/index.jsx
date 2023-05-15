@@ -33,7 +33,7 @@ export const NewProject = () => {
                 <section className="section">
                     <h1 className="title">Criar Projetos</h1>
                     <p className="text">Crie seu projeto para adicionar serviços</p>
-                    <Form handleSubmit={createPost}  />
+                    <Form handleSubmit={createPost} textBtn="Criar Projeto" />
                 </section>
             </main>
         </>

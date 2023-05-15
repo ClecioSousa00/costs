@@ -1,9 +1,9 @@
 {
   "projects": [
     {
-      "nameproject": "projeto 3",
-      "budgetValue": "2000",
-      "categorie": "design",
+      "nameproject": "projeto 4",
+      "budgetValue": "6000",
+      "categorie": "desenvolver",
       "cost": 0,
       "services": [],
       "id": 7
