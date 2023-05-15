@@ -24,7 +24,7 @@ export const Form = ({handleSubmit, projectData, textBtn}) =>{
         <form className="form" onSubmit={submitForm}>
             <input 
                 className="form_input"
-                value={project ? project.nameproject : ''} 
+                value={project.nameproject || ''} 
                 type="text" 
                 name="nameproject" 
                 placeholder="Nome do Projeto"
@@ -32,7 +32,7 @@ export const Form = ({handleSubmit, projectData, textBtn}) =>{
             />
             <input 
                 className="form_input" 
-                value={project ? project.budgetValue : ''} 
+                value={project.budgetValue || ''} 
                 type="number" 
                 name="budgetValue" 
                 placeholder="Orçamento do Projeto"
@@ -40,7 +40,7 @@ export const Form = ({handleSubmit, projectData, textBtn}) =>{
             />
             <input 
                 className="form_input" 
-                value={project ? project.categorie : ''} 
+                value={project.categorie || ''} 
                 type="text" 
                 name="categorie" 
                 placeholder="Categoria do Projeto"

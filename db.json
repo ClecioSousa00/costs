@@ -7,6 +7,14 @@
       "cost": 0,
       "services": [],
       "id": 7
+    },
+    {
+      "nameproject": "projeto teste para o css",
+      "budgetValue": "6666666666",
+      "categorie": "desenvolver",
+      "cost": 0,
+      "services": [],
+      "id": 8
     }
   ],
   "categories": [
