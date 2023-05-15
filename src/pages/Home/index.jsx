@@ -6,7 +6,7 @@ import { LinkButton } from "../../components/LinkButton"
 export const Home = () =>{
   return (
     <>
-      <Header/>
+      
       <main className="main_home">
         <section className="section">
           <h1 className="title">Bem vindo ao <span>Costs</span></h1>

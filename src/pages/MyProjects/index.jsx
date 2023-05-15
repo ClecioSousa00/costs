@@ -53,7 +53,7 @@ export const MyProjects =() =>{
 
     return(
         <>
-            <Header/>
+            
             <main>
                 <div className="my_project">
                     <h1>Meus projetos</h1>

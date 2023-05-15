@@ -26,10 +26,15 @@
     margin-top: 3rem;
 }
 
-.button_project button{
+
+.button_project button, .button_project a{
     padding: .5rem;
     display: flex;
     align-items: center;
     gap: .3rem;
-
+}
+.button_project a{
+   color: #000;
+   font-size: 1.4rem;
+   border: 1px solid #000;
 }

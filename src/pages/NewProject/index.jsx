@@ -28,7 +28,7 @@ export const NewProject = () => {
 
     return (
         <>
-            <Header />
+           
             <main>
                 <section className="section">
                     <h1 className="title">Criar Projetos</h1>
