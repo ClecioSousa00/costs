@@ -5,6 +5,7 @@ export const Project = () =>{
     
     const {id} = useParams()
     const [project, setProject] = useState([])
+    const [showProjectForm, setShowProjectForm] = useState(false)
 
     useEffect(()=>{
         fetch(`http://localhost:5000/projects/${id}`,{
@@ -18,7 +19,19 @@ export const Project = () =>{
         .catch(err => console.log("erro ao pegar projeto ao clicar em editar"))
     },[id])
 
+    const toggleProjectForm = () =>{
+        setShowProjectForm(!showProjectForm)
+    }
+
+    if(!project){
+        console.log('projeto ainda n existe');
+        return
+    }
+
     return(
-        <h1>Projeto Selecionado</h1>
+        <main>
+            <h1>Projeto: {project.nameproject}</h1>
+            <button onClick={toggleProjectForm}>{showProjectForm ? 'Fechar': 'Editar Projeto'}</button>
+        </main>
     )
 }

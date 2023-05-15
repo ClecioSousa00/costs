@@ -32,6 +32,7 @@ export const MyProjects =() =>{
             id={project.id} 
             name={project.nameproject} 
             budget={project.budgetValue}
+            categorie={project.categorie}
             key={project.id}
             handleRemove={removeProjects}
             />

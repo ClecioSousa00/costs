@@ -36,6 +36,13 @@ export const Form = ({handleSubmit, projectData, categories}) =>{
                 placeholder="Orçamento do Projeto"
                 onChange={handleChange}
             />
+            <input 
+                className="form_input" 
+                type="text" 
+                name="categorie" 
+                placeholder="Categoria do Projeto"
+                onChange={handleChange}
+            />
             {/* <select className="form_select" name="category_id" id="">
                 <option>Selecione uma opcao</option>
                 {categories.map(categorie => <option key={categorie.id} value={categorie.id}>{categorie.name}</option>)}
