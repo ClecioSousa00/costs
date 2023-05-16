@@ -1,0 +1,22 @@
+
+.edit_project{
+    padding: 2rem;
+}
+
+.edit_btn{
+    padding: .5rem 1rem;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    color: #fff;
+    background-color: var(--color-menu-mobile);
+    transition: all .3s ease-out;
+}
+
+.edit_btn:hover{
+    transform: scale(1.1);
+}
+
+.description_project p{
+    font-size: 1.4rem;
+    margin-top: 2rem;
+}
