@@ -6,11 +6,13 @@ import { Form } from "../../components/Form"
 import { ServiceForm } from "../../components/ServiceForm"
 
 import "./Project.css"
+import { ServiceCard } from "../../components/ServiceCard"
 
 export const Project = () => {
 
     const { id } = useParams()
     const [project, setProject] = useState([])
+    const [services, setServices] = useState([])
     const [showProjectForm, setShowProjectForm] = useState(false)
     const [showServiceForm, setShowServiceForm] = useState(false)
 
@@ -22,9 +24,12 @@ export const Project = () => {
             },
         })
             .then(response => response.json())
-            .then(data => setProject(data))
+            .then(data =>{
+                setProject(data)
+                setServices(data.services)
+            })
             .catch(err => console.log("erro ao pegar projeto ao clicar em editar"))
-    }, [id])
+    }, [id, services])
 
 
     const editProject = (project) => {
@@ -77,6 +82,20 @@ export const Project = () => {
         setShowServiceForm(!showServiceForm)
     }
 
+    const generateCardServices = (services) =>{
+        return(
+            services.map(service => (
+                <ServiceCard 
+                    id={service.id}
+                    name={service.nameService}
+                    cost={service.costValue}
+                    description={service.descriptionService}
+                    key={service.id}
+                />
+            ))
+        )
+    }
+
     if (!project) {
         console.log('projeto ainda n existe');//colocar loader
         return
@@ -101,6 +120,7 @@ export const Project = () => {
                     {showServiceForm && (<ServiceForm handleSubmit={createService} projectData={project}/>)}
                 </div>
                 <h2>Serviços</h2>
+                {services.length ? generateCardServices(services) : <h1>não tem</h1>}
             </div>
         </main>
     )
