@@ -1,11 +1,11 @@
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 import { SubmitButton } from "../SubmitButton"
 
 
 
-export const ServiceForm = (handleSubmit, textBtn, projectData) => {
+export const ServiceForm = ({handleSubmit, projectData}) => {
 
     const [service, setService] = useState({})
 
@@ -23,6 +23,7 @@ export const ServiceForm = (handleSubmit, textBtn, projectData) => {
         <>
             <form className="form" onSubmit={submitForm}>
                 <input
+                    
                     className="form_input"
                     type="text"
                     name="nameService"

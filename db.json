@@ -1,11 +1,18 @@
 {
   "projects": [
     {
-      "nameproject": "projeto 4",
-      "budgetValue": "6000",
-      "categorie": "desenvolver",
-      "cost": 0,
-      "services": [],
+      "nameproject": "projeto 5",
+      "budgetValue": "60000",
+      "categorie": "desenvolver site",
+      "cost": 1000,
+      "services": [
+        {
+          "nameService": "teste serviço",
+          "costValue": "1000",
+          "descriptionService": "teste",
+          "id": "167f78e8-bc34-402f-b31a-9f0b6c714c14"
+        }
+      ],
       "id": 7
     },
     {

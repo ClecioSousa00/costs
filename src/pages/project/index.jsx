@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { v4 as uuidv4 } from "uuid"
 
 import { Form } from "../../components/Form"
 import { ServiceForm } from "../../components/ServiceForm"
@@ -42,7 +43,30 @@ export const Project = () => {
             .catch(err => console.log("erro ao pegar projeto ao clicar em editar"))
     }
 
-    const createService = () =>{
+    const createService = (project) =>{
+        const lastService = project.services[project.services.length -1]
+        
+        lastService.id = uuidv4()
+        const lastServiceCost = lastService.costValue
+        const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
+        
+        if(newCost > parseFloat(project.budgetValue)){
+            console.log("valor do serviço é maior que o orçamento");
+            project.services.pop()
+            return false
+        }
+       project.cost = newCost
+
+       fetch(`http://localhost:5000/projects/${project.id}`,{
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(project)
+       })
+       .then(response => response.json())
+       .then(data => console.log(data))
+       .catch(err => console.log("erro ao mudar valor"))
         
     }
 
@@ -81,3 +105,5 @@ export const Project = () => {
         </main>
     )
 }
+
+// 
