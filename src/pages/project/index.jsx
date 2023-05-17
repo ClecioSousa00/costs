@@ -75,6 +75,25 @@ export const Project = () => {
         
     }
 
+    const removeService = (id,cost) =>{
+        const serviceUpdate = project.services.filter(service => service.id !== id)
+        const projectUpdate = project
+        projectUpdate.services = serviceUpdate
+        projectUpdate.cost = parseFloat(projectUpdate.cost) - parseFloat(cost)
+
+        fetch(`http://localhost:5000/projects/${projectUpdate.id}`,{
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(projectUpdate)
+        }).then(response => response.json())
+        .then(data => {
+            setProject(projectUpdate)
+            setServices(serviceUpdate)
+        })
+    }
+
     const toggleProjectForm = () => {
         setShowProjectForm(!showProjectForm)
     }
@@ -90,6 +109,7 @@ export const Project = () => {
                     name={service.nameService}
                     cost={service.costValue}
                     description={service.descriptionService}
+                    handleRemove={removeService}
                     key={service.id}
                 />
             ))

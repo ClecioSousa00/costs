@@ -4,42 +4,16 @@
       "nameproject": "projeto 5",
       "budgetValue": "60000",
       "categorie": "desenvolver site",
-      "cost": 5110,
+      "cost": 2000,
       "services": [
         {
           "nameService": "teste serviço",
-          "costValue": "1000",
-          "descriptionService": "teste",
-          "id": "167f78e8-bc34-402f-b31a-9f0b6c714c14"
-        },
-        {
-          "nameService": "serviço 2",
-          "costValue": "4000",
-          "descriptionService": "teste 2",
-          "id": "9589f0fb-d442-4acc-8fe0-ab8df3c93aa3"
-        },
-        {
-          "nameService": "servico 3",
-          "costValue": "50",
+          "costValue": "2000",
           "descriptionService": "teste 3",
-          "id": "50d28e87-70ef-474d-82e6-070ce5bb2220"
-        },
-        {
-          "nameService": "servico 4",
-          "costValue": "60",
-          "descriptionService": "teste 4",
-          "id": "c019cfdf-7a4e-48c6-96d9-3bf7ca1ea737"
+          "id": "1cfaddac-c00b-4d1c-885b-2ccc3adf78c8"
         }
       ],
       "id": 7
-    },
-    {
-      "nameproject": "projeto teste para o css",
-      "budgetValue": "6666666666",
-      "categorie": "desenvolver",
-      "cost": 0,
-      "services": [],
-      "id": 8
     }
   ],
   "categories": [

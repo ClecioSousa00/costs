@@ -3,6 +3,11 @@ import {FaRegTrashAlt} from "react-icons/fa"
 
 export const ServiceCard = ({id, name, cost, description, handleRemove}) =>{
 
+    const removeServiceCard = (event) =>{
+        event.preventDefault()
+        handleRemove(id, cost)
+    }
+
     return(
         <div className="card_project">
             <h1 className="title_project">{name}</h1>
@@ -11,7 +16,7 @@ export const ServiceCard = ({id, name, cost, description, handleRemove}) =>{
                 <p className="categorie">{description}</p>
             </div>
             <div className="button_project"> 
-                <button onClick={() => handleRemove(id)}><FaRegTrashAlt/>Excluir</button>
+                <button onClick={removeServiceCard}><FaRegTrashAlt/>Excluir</button>
             </div>
         </div>
     )
