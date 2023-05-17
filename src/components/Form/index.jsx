@@ -22,34 +22,42 @@ export const Form = ({handleSubmit, projectData, textBtn}) =>{
  
     return(
         <form className="form" onSubmit={submitForm}>
-            <input 
-                className="form_input"
-                value={project.nameproject || ''} 
-                type="text" 
-                name="nameproject" 
-                placeholder="Nome do Projeto"
-                onChange={handleChange}
-            />
-            <input 
-                className="form_input" 
-                value={project.budgetValue || ''} 
-                type="number" 
-                name="budgetValue" 
-                placeholder="Orçamento do Projeto"
-                onChange={handleChange}
-            />
-            <input 
-                className="form_input" 
-                value={project.categorie || ''} 
-                type="text" 
-                name="categorie" 
-                placeholder="Categoria do Projeto"
-                onChange={handleChange}
-            />
-            {/* <select className="form_select" name="category_id" id="">
-                <option>Selecione uma opcao</option>
-                {categories.map(categorie => <option key={categorie.id} value={categorie.id}>{categorie.name}</option>)}
-            </select> */}
+            <div>
+                <label htmlFor="nameproject">Projeto</label>
+                <input
+                    className="form_input"
+                    value={project.nameproject || ''}
+                    type="text"
+                    name="nameproject"
+                    id="nameproject"
+                    placeholder="Nome do Projeto"
+                    onChange={handleChange}
+                />
+            </div>
+            <div>
+                <label htmlFor="budgetValue">Orçamento</label>
+                <input
+                    className="form_input"
+                    value={project.budgetValue || ''}
+                    type="number"
+                    name="budgetValue"
+                    id="budgetValue"
+                    placeholder="Orçamento do Projeto"
+                    onChange={handleChange}
+                />
+            </div>
+            <div>
+                <label htmlFor="categorie">Orçamento</label>
+                <input
+                    className="form_input"
+                    value={project.categorie || ''}
+                    type="text"
+                    name="categorie"
+                    id="categorie"
+                    placeholder="Categoria do Projeto"
+                    onChange={handleChange}
+                />
+            </div>
             <SubmitButton  text={textBtn}/>
         </form>
     )
