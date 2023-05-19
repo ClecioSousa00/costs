@@ -1,0 +1,15 @@
+.description_project_edit {
+  border-bottom: 1px solid var(--color-secondary);
+  padding-bottom: 1.5rem;
+  margin: 4rem 0rem;
+}
+
+.description_project_edit p{
+  font-size: 1.6rem;
+  margin-top: 1rem;
+}
+
+.description_project_edit p:first-child{
+  text-transform: capitalize;
+}
+

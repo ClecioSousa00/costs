@@ -7,6 +7,7 @@ import { ServiceForm } from "../../components/ServiceForm"
 
 import "./Project.css"
 import { ServiceCard } from "../../components/ServiceCard"
+import { ProjectDescription } from "../../components/ProjectDescription"
 
 export const Project = () => {
 
@@ -24,7 +25,7 @@ export const Project = () => {
             },
         })
             .then(response => response.json())
-            .then(data =>{
+            .then(data => {
                 setProject(data)
                 setServices(data.services)
             })
@@ -41,57 +42,57 @@ export const Project = () => {
             body: JSON.stringify(project),
         })
             .then(response => response.json())
-            .then(data =>{
-                setProject(data) 
+            .then(data => {
+                setProject(data)
                 setShowProjectForm(false)
-            } )
+            })
             .catch(err => console.log("erro ao pegar projeto ao clicar em editar"))
     }
 
-    const createService = (project) =>{
-        const lastService = project.services[project.services.length -1]
-        
+    const createService = (project) => {
+        const lastService = project.services[project.services.length - 1]
+
         lastService.id = uuidv4()
         const lastServiceCost = lastService.costValue
         const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
-        
-        if(newCost > parseFloat(project.budgetValue)){
+
+        if (newCost > parseFloat(project.budgetValue)) {
             console.log("valor do serviço é maior que o orçamento");
             project.services.pop()
             return false
         }
-       project.cost = newCost
+        project.cost = newCost
 
-       fetch(`http://localhost:5000/projects/${project.id}`,{
+        fetch(`http://localhost:5000/projects/${project.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(project)
-       })
-       .then(response => response.json())
-       .then(data => console.log(data))
-       .catch(err => console.log("erro ao mudar valor"))
-        
+        })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(err => console.log("erro ao mudar valor"))
+
     }
 
-    const removeService = (id,cost) =>{
+    const removeService = (id, cost) => {
         const serviceUpdate = project.services.filter(service => service.id !== id)
         const projectUpdate = project
         projectUpdate.services = serviceUpdate
         projectUpdate.cost = parseFloat(projectUpdate.cost) - parseFloat(cost)
 
-        fetch(`http://localhost:5000/projects/${projectUpdate.id}`,{
+        fetch(`http://localhost:5000/projects/${projectUpdate.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(projectUpdate)
         }).then(response => response.json())
-        .then(data => {
-            setProject(projectUpdate)
-            setServices(serviceUpdate)
-        })
+            .then(data => {
+                setProject(projectUpdate)
+                setServices(serviceUpdate)
+            })
     }
 
     const toggleProjectForm = () => {
@@ -101,10 +102,10 @@ export const Project = () => {
         setShowServiceForm(!showServiceForm)
     }
 
-    const generateCardServices = (services) =>{
-        return(
+    const generateCardServices = (services) => {
+        return (
             services.map(service => (
-                <ServiceCard 
+                <ServiceCard
                     id={service.id}
                     name={service.nameService}
                     cost={service.costValue}
@@ -123,24 +124,25 @@ export const Project = () => {
     //fazer a div ser um componente
     return (
         <main className="edit_project">
-            <h1>Projeto: {project.nameproject}</h1>
-            <button className="edit_btn" onClick={toggleProjectForm}>{showProjectForm ? 'Fechar' : 'Editar Projeto'}</button>
+            <div className="header_project">
+                <h1 className="title_project">Projeto: {project.nameproject}</h1>
+                <button className="edit_btn" onClick={toggleProjectForm}>{showProjectForm ? 'Fechar' : 'Editar Projeto'}</button>
+            </div>
             {!showProjectForm ?
-                <div className="description_project">
-                    <p>Categoria: {project.categorie}</p>
-                    <p>Orçamento: {project.budgetValue}</p>
-                    <p>Valor Gasto: {project.cost}</p>
-                </div> :
-                <Form handleSubmit={editProject} projectData={project} textBtn="Salvar Alterações"/>
+                <ProjectDescription categorie={project.categorie} budgetValue={project.budgetValue} cost={project.cost} />
+                :
+                <Form handleSubmit={editProject} projectData={project} textBtn="Salvar Alterações" />
             }
             <div className="service_project">
-                <h2>Adicione um serviço</h2>
-                <button className="edit_btn" onClick={toggleServiceForm}>{!showServiceForm ? 'Adicionar serviço' : 'Fechar'}</button>
-                <div>
-                    {showServiceForm && (<ServiceForm handleSubmit={createService} projectData={project}/>)}
+                <div className="header_project">
+                    <h2 className="title_project">Adicione um serviço</h2>
+                    <button className="edit_btn" onClick={toggleServiceForm}>{!showServiceForm ? 'Adicionar serviço' : 'Fechar'}</button>
                 </div>
-                <h2>Serviços</h2>
-                {services.length ? generateCardServices(services) : <h1>não tem</h1>}
+                <div>
+                    {showServiceForm && (<ServiceForm handleSubmit={createService} projectData={project} />)}
+                </div>
+                
+                {services.length ? generateCardServices(services) : <h1>Você ainda não possui serviços adicionados</h1>}
             </div>
         </main>
     )
