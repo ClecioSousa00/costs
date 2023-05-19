@@ -17,7 +17,10 @@ export const Project = () => {
     const [showProjectForm, setShowProjectForm] = useState(false)
     const [showServiceForm, setShowServiceForm] = useState(false)
 
+    
+
     useEffect(() => {
+        console.log('fetch 1');
         fetch(`http://localhost:5000/projects/${id}`, {
             method: 'GET',
             headers: {
@@ -30,10 +33,12 @@ export const Project = () => {
                 setServices(data.services)
             })
             .catch(err => console.log("erro ao pegar projeto ao clicar em editar"))
-    }, [id, services])
+    }, [id])
+    
 
 
     const editProject = (project) => {
+        console.log('fetch 2');
         fetch(`http://localhost:5000/projects/${id}`, {
             method: 'PATCH',
             headers: {
@@ -71,12 +76,16 @@ export const Project = () => {
             body: JSON.stringify(project)
         })
             .then(response => response.json())
-            .then(data => console.log(data))
+            .then(data => {
+                setProject(data)
+                setShowServiceForm(false)
+            })
             .catch(err => console.log("erro ao mudar valor"))
 
     }
 
     const removeService = (id, cost) => {
+        console.log('fetch 4');
         const serviceUpdate = project.services.filter(service => service.id !== id)
         const projectUpdate = project
         projectUpdate.services = serviceUpdate
@@ -117,10 +126,7 @@ export const Project = () => {
         )
     }
 
-    if (!project) {
-        console.log('projeto ainda n existe');//colocar loader
-        return
-    }
+   
     //fazer a div ser um componente
     return (
         <main className="edit_project">
@@ -135,15 +141,19 @@ export const Project = () => {
             }
             <div className="service_project">
                 <div className="header_project">
-                    <h2 className="title_project">Adicione um serviço</h2>
+                    <h2 className="title_services">Serviços</h2>
                     <button className="edit_btn" onClick={toggleServiceForm}>{!showServiceForm ? 'Adicionar serviço' : 'Fechar'}</button>
                 </div>
                 <div>
                     {showServiceForm && (<ServiceForm handleSubmit={createService} projectData={project} />)}
                 </div>
                 
-                {services.length ? generateCardServices(services) : <h1>Você ainda não possui serviços adicionados</h1>}
             </div>
+                <div className="container_services">
+                    {services.length ? generateCardServices(services) 
+                    : 
+                    <h1>Você ainda não possui serviços adicionados</h1>}
+                </div>
         </main>
     )
 }

@@ -1,10 +1,10 @@
 {
   "projects": [
     {
-      "nameproject": "projeto 5",
-      "budgetValue": "60000",
+      "nameproject": "projeto 8",
+      "budgetValue": "6000",
       "categorie": "desenvolver site",
-      "cost": 2000,
+      "cost": 1780,
       "services": [
         {
           "nameService": "teste serviço",
@@ -14,6 +14,21 @@
         }
       ],
       "id": 7
+    },
+    {
+      "nameproject": "desenvolver site",
+      "budgetValue": "600000",
+      "categorie": "design",
+      "cost": 600,
+      "services": [
+        {
+          "nameService": "teste serviço",
+          "costValue": "600",
+          "descriptionService": "teste",
+          "id": "89229c15-6e91-4c6b-b3ca-332313b92d36"
+        }
+      ],
+      "id": 8
     }
   ],
   "categories": [

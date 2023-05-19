@@ -22,28 +22,38 @@ export const ServiceForm = ({handleSubmit, projectData}) => {
     return (
         <>
             <form className="form" onSubmit={submitForm}>
-                <input
-                    
-                    className="form_input"
-                    type="text"
-                    name="nameService"
-                    placeholder="Nome do Serviço"
-                    onChange={handleChange}
-                />
-                <input
-                    className="form_input"
-                    type="number"
-                    name="costValue"
-                    placeholder="Custo do Serviço"
-                    onChange={handleChange}
-                />
-                <input
-                    className="form_input"
-                    type="text"
-                    name="descriptionService"
-                    placeholder="Descreva o Serviço"
-                    onChange={handleChange}
-                />
+                <div>
+                    <label htmlFor="nameService">Projeto</label>
+                    <input
+                        className="form_input"
+                        type="text"
+                        name="nameService"
+                        placeholder="Nome do Serviço"
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor="costValue">Custo</label>
+                    <input
+                        className="form_input"
+                        type="number"
+                        name="costValue"
+                        placeholder="Custo do Serviço"
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor="descriptionService">Descrição</label>
+                    <input
+                        className="form_input"
+                        type="text"
+                        name="descriptionService"
+                        placeholder="Descreva o Serviço"
+                        onChange={handleChange}
+                    />
+                </div>
                 <SubmitButton text="Adicionar Serviço" />
             </form>
         </>

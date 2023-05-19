@@ -47,7 +47,7 @@ export const Form = ({handleSubmit, projectData, textBtn}) =>{
                 />
             </div>
             <div>
-                <label htmlFor="categorie">Orçamento</label>
+                <label htmlFor="categorie">Categoria</label>
                 <input
                     className="form_input"
                     value={project.categorie || ''}

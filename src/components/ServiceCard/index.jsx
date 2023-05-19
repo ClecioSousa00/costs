@@ -1,5 +1,5 @@
 import {FaRegTrashAlt} from "react-icons/fa"
-
+import './ServiceForm.css'
 
 export const ServiceCard = ({id, name, cost, description, handleRemove}) =>{
 
