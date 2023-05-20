@@ -10,13 +10,14 @@
 }
 
 .title_project{
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--color-buttons);
     background-color: var(--color-secondary);
     padding: 1rem;
     text-align: center;
     text-transform: capitalize;
+    max-width:22rem;
 }
 
 .card_project p{

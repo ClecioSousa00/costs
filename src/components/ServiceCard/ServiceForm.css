@@ -2,3 +2,7 @@
   font-size: 1.8rem;
   margin-top: 1rem;
 }
+
+.description_text_service{
+  word-wrap: break-word;
+}

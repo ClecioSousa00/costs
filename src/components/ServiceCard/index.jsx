@@ -13,7 +13,7 @@ export const ServiceCard = ({id, name, cost, description, handleRemove}) =>{
             <h1 className="title_project">{name}</h1>
             <div className="description_project">
                 <p><strong>Valor: </strong>R$ {cost}</p>
-                <p className="categorie">{description}</p>
+                <p className="description_text_service">{description}</p>
             </div>
             <div className="button_project"> 
                 <button onClick={removeServiceCard}><FaRegTrashAlt/>Excluir</button>

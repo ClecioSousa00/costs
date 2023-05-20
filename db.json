@@ -19,16 +19,30 @@
       "nameproject": "desenvolver site",
       "budgetValue": "600000",
       "categorie": "design",
-      "cost": 600,
+      "cost": 670,
       "services": [
         {
           "nameService": "teste serviço",
           "costValue": "600",
           "descriptionService": "teste",
           "id": "89229c15-6e91-4c6b-b3ca-332313b92d36"
+        },
+        {
+          "nameService": "teste serviço",
+          "costValue": "70",
+          "descriptionService": "testetestetestetestttttttttttttttttttttttttttttttttttttttttttttt parfd dgccd c",
+          "id": "6fe672e6-9627-49f2-9b9c-e4c11ed6144e"
         }
       ],
       "id": 8
+    },
+    {
+      "nameproject": "projeto 3",
+      "budgetValue": "50000",
+      "categorie": "design",
+      "cost": 0,
+      "services": [],
+      "id": 9
     }
   ],
   "categories": [

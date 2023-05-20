@@ -135,7 +135,7 @@ export const Project = () => {
     return (
         <main className="edit_project">
             <div className="header_project">
-                <h1 className="title_project">Projeto: {project.nameproject}</h1>
+                <h1 className="title_project">{project.nameproject}</h1>
                 <button className="edit_btn" onClick={toggleProjectForm}>{showProjectForm ? 'Fechar' : 'Editar Projeto'}</button>
             </div>
             {!showProjectForm ?
@@ -156,7 +156,8 @@ export const Project = () => {
                 <div className="container_services">
                     {services.length ? generateCardServices(services) 
                     : 
-                    <h1>Você ainda não possui serviços adicionados</h1>}
+                    <h1 className="title_project_without">Você ainda não possui serviços adicionados</h1>
+                    }
                 </div>
         </main>
     )

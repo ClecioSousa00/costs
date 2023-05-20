@@ -62,7 +62,7 @@ export const MyProjects =() =>{
             
             <main>
                 <div className="my_project">
-                    <h1>Meus projetos</h1>
+                    <h1>Meus Projetos</h1>
                     <LinkButton to="/Novo-Projeto" text="Criar Projeto"/>
                 </div>
                <section className="container_projects">

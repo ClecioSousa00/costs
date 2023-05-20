@@ -32,5 +32,12 @@
     display: grid;
     grid-template-columns: 1fr;
     place-items: center;
+}
+
+.title_project_without{
     text-align: center;
+    font-size: 2rem;
+    padding: 1rem;
+    background-color: var(--color-secondary);
+    color: #fff;
 }
