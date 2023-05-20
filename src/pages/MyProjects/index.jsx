@@ -5,6 +5,7 @@ import { LinkButton } from "../../components/LinkButton"
 
 import "./MyProject.css"
 import { ProjectCard } from "../../components/ProjectCard"
+import { Loader } from "../../components/Loader"
 
 export const MyProjects =() =>{
 
@@ -21,7 +22,8 @@ export const MyProjects =() =>{
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                setProjects(data)
+                setTimeout(() => {setProjects(data)},400)
+                
             })
             .catch(err => console.log('Erro'))
     }, [])
@@ -51,6 +53,9 @@ export const MyProjects =() =>{
         .catch(err => console.log("erro ao excluir"))
     }
 
+    if(!projects.length){
+        return <Loader/>
+    }
 
     return(
         <>

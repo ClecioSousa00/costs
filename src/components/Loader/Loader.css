@@ -1,0 +1,19 @@
+
+.loader{
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 3px solid var(--color-secondary);
+  border-top: 3px solid transparent;
+  animation: loading 2s linear infinite;
+  margin: 12rem auto;
+}
+
+@keyframes loading{
+  0%{
+      transform: rotate(0deg);
+  }
+  100%{
+      transform: rotate(360deg);
+  }
+}

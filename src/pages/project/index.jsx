@@ -8,6 +8,7 @@ import { ServiceForm } from "../../components/ServiceForm"
 import "./Project.css"
 import { ServiceCard } from "../../components/ServiceCard"
 import { ProjectDescription } from "../../components/ProjectDescription"
+import { Loader } from "../../components/Loader"
 
 export const Project = () => {
 
@@ -29,7 +30,7 @@ export const Project = () => {
         })
             .then(response => response.json())
             .then(data => {
-                setProject(data)
+                setTimeout(() => {setProject(data)},400)
                 setServices(data.services)
             })
             .catch(err => console.log("erro ao pegar projeto ao clicar em editar"))
@@ -126,6 +127,9 @@ export const Project = () => {
         )
     }
 
+    if(!project.nameproject){
+        return <Loader/>
+    }
    
     //fazer a div ser um componente
     return (
