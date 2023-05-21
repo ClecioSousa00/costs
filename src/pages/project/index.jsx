@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { v4 as uuidv4 } from "uuid"
+import {FaAngleLeft} from 'react-icons/fa'
 
 import { Form } from "../../components/Form"
 import { ServiceForm } from "../../components/ServiceForm"
@@ -21,7 +22,7 @@ export const Project = () => {
     
 
     useEffect(() => {
-        console.log('fetch 1');
+        console.log('fetch dos services');
         fetch(`http://localhost:5000/projects/${id}`, {
             method: 'GET',
             headers: {
@@ -134,6 +135,7 @@ export const Project = () => {
     //fazer a div ser um componente
     return (
         <main className="edit_project">
+            <Link className="back_link" to="/Projetos"><FaAngleLeft/> Voltar</Link>
             <div className="header_project">
                 <h1 className="title_project">{project.nameproject}</h1>
                 <button className="edit_btn" onClick={toggleProjectForm}>{showProjectForm ? 'Fechar' : 'Editar Projeto'}</button>
