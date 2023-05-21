@@ -11,15 +11,15 @@ import { axiosInstance } from "../../axios/axios.instance"
 export const MyProjects = () => {
 
     const [projects, setProjects] = useState([])
-    // const [isOpenModal, setIsOpenModal] = useState(false)
-    // const [valueButtonModal, setValueButtonModal] = useState(false)
-    // const [idProjectDelete, setIdProjectDelete] = useState()
+    const [isOpenModal, setIsOpenModal] = useState(false)
+    const [valueButtonModal, setValueButtonModal] = useState(false)
+    const [idProjectDelete, setIdProjectDelete] = useState()
 
     useEffect(() => {
         axiosInstance.get('')
             .then(response => setProjects(response.data))
             .catch(err => console.log('erro ao carregar meu projetos'))
-        
+
     }, [])
 
     const generateCardsProject = (projects) => {
@@ -35,40 +35,40 @@ export const MyProjects = () => {
         ))
     }
 
-    // const buttonModal = (value) => {
-    //     if (!value) {
-    //         setIsOpenModal(false)
-    //     }
-    //     if (value) {
-    //         setIsOpenModal(false)
+    const buttonModal = (value) => {
+        if (!value) {
+            setIsOpenModal(false)
+        }
+        if (value) {
+            setIsOpenModal(false)
 
-    //         fetch(`http://localhost:5000/projects/${idProjectDelete}`, {
-    //             method: 'DELETE',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //         })
-    //             .then(response => response.json())
-    //             .then(() => setProjects(projects.filter(project => project.id !== idProjectDelete)))
-    //             .catch(err => console.log("erro ao excluir"))
-    //     }
-    // }
+            fetch(`http://localhost:5000/projects/${idProjectDelete}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+                .then(response => response.json())
+                .then(() => setProjects(projects.filter(project => project.id !== idProjectDelete)))
+                .catch(err => console.log("erro ao excluir"))
+        }
+    }
 
     const removeProjects = (id) => {
-        // setIsOpenModal(true)
-        // setIdProjectDelete(id)
-        // console.log(id);
-        // if (!valueButtonModal) return
+        setIsOpenModal(true)
+        setIdProjectDelete(id)
+        console.log(id);
+        if (!valueButtonModal) return
 
         fetch(`http://localhost:5000/projects/${id}`, {
             method: 'DELETE',
-            headers:{
+            headers: {
                 'Content-Type': 'application/json',
             },
         })
-        .then(response => response.json())
-        .then(() => setProjects(projects.filter(project => project.id !== id)))
-        .catch(err => console.log("erro ao excluir"))
+            .then(response => response.json())
+            .then(() => setProjects(projects.filter(project => project.id !== id)))
+            .catch(err => console.log("erro ao excluir"))
     }
 
     // if(!projects.length){
@@ -83,7 +83,7 @@ export const MyProjects = () => {
                     <h1>Meus Projetos</h1>
                     <LinkButton to="/Novo-Projeto" text="Criar Projeto" />
                 </div>
-                {/* {isOpenModal && <Modal buttonModal={buttonModal} />} */}
+                {isOpenModal && <Modal buttonModal={buttonModal} />}
                 <section className="container_projects">
                     {projects.length ? (generateCardsProject(projects)) : <h2 className="title_project-title">Nenhum projeto foi criado</h2>}
                 </section>

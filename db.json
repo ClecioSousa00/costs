@@ -1,39 +1,28 @@
 {
   "projects": [
     {
-      "nameproject": "new project",
-      "budgetValue": "90000",
-      "categorie": "design",
-      "cost": 2664,
-      "services": [
-        {
-          "nameService": "teste serviço",
-          "costValue": "888",
-          "descriptionService": "teste 2",
-          "id": "b037c070-dc72-4284-a12c-d5bae3246b87"
-        },
-        {
-          "nameService": "teste serviço",
-          "costValue": "777",
-          "descriptionService": "teste",
-          "id": "c26dbd20-c2f0-46a4-9507-aed939fa1e3e"
-        },
-        {
-          "nameService": "teste serviço",
-          "costValue": "999",
-          "descriptionService": "teste",
-          "id": "87f90c74-4890-41ab-9fa2-11544bad0e77"
-        }
-      ],
-      "id": 8
-    },
-    {
       "nameproject": "desenvolver design do site",
       "budgetValue": "90000",
       "categorie": "design",
       "cost": 0,
       "services": [],
       "id": 9
+    },
+    {
+      "nameproject": "desenvolver design do site",
+      "budgetValue": "77878",
+      "categorie": "design",
+      "cost": 0,
+      "services": [],
+      "id": 10
+    },
+    {
+      "nameproject": "desenvolver site",
+      "budgetValue": "999999",
+      "categorie": "design",
+      "cost": 0,
+      "services": [],
+      "id": 11
     }
   ],
   "categories": [
