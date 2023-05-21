@@ -19,17 +19,7 @@ export const MyProjects = () => {
         axiosInstance.get('')
             .then(response => setProjects(response.data))
             .catch(err => console.log('erro ao carregar meu projetos'))
-        // fetch('http://localhost:5000/projects', {
-        //     method: 'GET',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         setProjects(data)
-        //     })
-        //     .catch(err => console.log('Erro'))
+        
     }, [])
 
     const generateCardsProject = (projects) => {

@@ -31,18 +31,6 @@ export const Project = () => {
                 setServices(response.data.services)
             })
             .catch(err => console.log('erro ao abrir o projeto'))
-        // fetch(`http://localhost:5000/projects/${id}`, {
-        //     method: 'GET',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         setTimeout(() => {setProject(data)},400)
-        //         setServices(data.services)
-        //     })
-        //     .catch(err => console.log("erro ao pegar projeto ao clicar em editar"))
     }, [id])
     
 
@@ -54,20 +42,6 @@ export const Project = () => {
                 setShowProjectForm(false)
             })
             .catch(err => console.log('erro ao pegar o projeto para editar'))
-
-        // fetch(`http://localhost:5000/projects/${id}`, {
-        //     method: 'PATCH',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(project),
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         setProject(data)
-        //         setShowProjectForm(false)
-        //     })
-        //     .catch(err => console.log("erro ao pegar projeto ao clicar em editar"))
     }
 
     const createService = (project) => {
@@ -92,21 +66,6 @@ export const Project = () => {
                 setShowServiceForm(false)
             })
             .catch(err => console.log("erro ao criar serviço do projeto"))
-
-        // fetch(`http://localhost:5000/projects/${project.id}`, {
-        //     method: 'PATCH',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(project)
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         setProject(data)
-        //         setShowServiceForm(false)
-        //     })
-        //     .catch(err => console.log("erro ao mudar valor"))
-
     }
 
     const removeService = (id, cost) => {
@@ -122,18 +81,6 @@ export const Project = () => {
                 setServices(serviceUpdate)
             })
             .catch(err => console.log("erro ao deletar projeto"))
-
-        // fetch(`http://localhost:5000/projects/${projectUpdate.id}`, {
-        //     method: 'PATCH',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(projectUpdate)
-        // }).then(response => response.json())
-        //     .then(data => {
-        //         setProject(projectUpdate)
-        //         setServices(serviceUpdate)
-        //     })
     }
 
     const toggleProjectForm = () => {

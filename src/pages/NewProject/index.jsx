@@ -15,18 +15,6 @@ export const NewProject = () => {
 
         axiosInstance.post('', project).then(data => setProjects(data)).catch(err => console.log('posta  axios n funciona'))
         navigate("/Projetos")
-
-        // fetch('http://localhost:5000/projects', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(project),
-        // })
-        //     .then(response => response.json())
-        //     .then(data => setProjects(data))
-        //     .catch(err => console.log('Erro'))
-        //     console.log('aquiPost')
     }
 
     return (
