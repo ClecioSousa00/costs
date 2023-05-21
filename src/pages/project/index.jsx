@@ -10,6 +10,8 @@ import "./Project.css"
 import { ServiceCard } from "../../components/ServiceCard"
 import { ProjectDescription } from "../../components/ProjectDescription"
 import { Loader } from "../../components/Loader"
+import { axiosInstance } from "../../axios/axios.instance"
+import { Menssage } from "../../components/Menssage"
 
 export const Project = () => {
 
@@ -18,42 +20,54 @@ export const Project = () => {
     const [services, setServices] = useState([])
     const [showProjectForm, setShowProjectForm] = useState(false)
     const [showServiceForm, setShowServiceForm] = useState(false)
+    const [showMenssage, setShowMenssage] = useState(false)
 
     
 
     useEffect(() => {
-        console.log('fetch dos services');
-        fetch(`http://localhost:5000/projects/${id}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-            .then(response => response.json())
-            .then(data => {
-                setTimeout(() => {setProject(data)},400)
-                setServices(data.services)
+        axiosInstance.get(`${id}`)
+            .then(response => {
+                setProject(response.data)
+                setServices(response.data.services)
             })
-            .catch(err => console.log("erro ao pegar projeto ao clicar em editar"))
+            .catch(err => console.log('erro ao abrir o projeto'))
+        // fetch(`http://localhost:5000/projects/${id}`, {
+        //     method: 'GET',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        // })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         setTimeout(() => {setProject(data)},400)
+        //         setServices(data.services)
+        //     })
+        //     .catch(err => console.log("erro ao pegar projeto ao clicar em editar"))
     }, [id])
     
 
 
     const editProject = (project) => {
-        console.log('fetch 2');
-        fetch(`http://localhost:5000/projects/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(project),
-        })
-            .then(response => response.json())
-            .then(data => {
-                setProject(data)
+        axiosInstance.patch(`${id}`, project)
+            .then(response => {
+                setProject(response.data)
                 setShowProjectForm(false)
             })
-            .catch(err => console.log("erro ao pegar projeto ao clicar em editar"))
+            .catch(err => console.log('erro ao pegar o projeto para editar'))
+
+        // fetch(`http://localhost:5000/projects/${id}`, {
+        //     method: 'PATCH',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(project),
+        // })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         setProject(data)
+        //         setShowProjectForm(false)
+        //     })
+        //     .catch(err => console.log("erro ao pegar projeto ao clicar em editar"))
     }
 
     const createService = (project) => {
@@ -65,24 +79,33 @@ export const Project = () => {
 
         if (newCost > parseFloat(project.budgetValue)) {
             console.log("valor do serviço é maior que o orçamento");
+            setShowMenssage(true)
             project.services.pop()
-            return false
+            return 
         }
+        setShowMenssage(false)
         project.cost = newCost
 
-        fetch(`http://localhost:5000/projects/${project.id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(project)
-        })
-            .then(response => response.json())
-            .then(data => {
-                setProject(data)
+        axiosInstance.patch(`${project.id}`,project)
+            .then(response =>{
+                setProject(response.data)
                 setShowServiceForm(false)
             })
-            .catch(err => console.log("erro ao mudar valor"))
+            .catch(err => console.log("erro ao criar serviço do projeto"))
+
+        // fetch(`http://localhost:5000/projects/${project.id}`, {
+        //     method: 'PATCH',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(project)
+        // })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         setProject(data)
+        //         setShowServiceForm(false)
+        //     })
+        //     .catch(err => console.log("erro ao mudar valor"))
 
     }
 
@@ -93,17 +116,24 @@ export const Project = () => {
         projectUpdate.services = serviceUpdate
         projectUpdate.cost = parseFloat(projectUpdate.cost) - parseFloat(cost)
 
-        fetch(`http://localhost:5000/projects/${projectUpdate.id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(projectUpdate)
-        }).then(response => response.json())
-            .then(data => {
+        axiosInstance.patch(`${projectUpdate.id}`,projectUpdate)
+            .then(response =>{
                 setProject(projectUpdate)
                 setServices(serviceUpdate)
             })
+            .catch(err => console.log("erro ao deletar projeto"))
+
+        // fetch(`http://localhost:5000/projects/${projectUpdate.id}`, {
+        //     method: 'PATCH',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(projectUpdate)
+        // }).then(response => response.json())
+        //     .then(data => {
+        //         setProject(projectUpdate)
+        //         setServices(serviceUpdate)
+        //     })
     }
 
     const toggleProjectForm = () => {
@@ -150,6 +180,7 @@ export const Project = () => {
                     <h2 className="title_services">Serviços</h2>
                     <button className="edit_btn" onClick={toggleServiceForm}>{!showServiceForm ? 'Adicionar serviço' : 'Fechar'}</button>
                 </div>
+            {showMenssage && <Menssage visible='visible'/>}
                 <div>
                     {showServiceForm && (<ServiceForm handleSubmit={createService} projectData={project} />)}
                 </div>

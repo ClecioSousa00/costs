@@ -1,18 +1,18 @@
 import { useState } from "react"
 import { SubmitButton } from "../SubmitButton"
 import "./Form.css"
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom"
 
 export const Form = ({handleSubmit, projectData, textBtn}) =>{
 
     const [project, setProject] = useState(projectData || {})
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const submitForm = (event) =>{
         event.preventDefault()
         handleSubmit(project)
         console.log(project);
-        navigate("/Projetos")
+        // navigate("/Projetos")
     }
 
     const handleChange = (event) =>{

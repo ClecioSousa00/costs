@@ -1,0 +1,10 @@
+.menssage{
+  text-align: center;
+  background-color: rgb(211, 69, 69);
+  color: #fff;
+  font-size: 2rem;
+  padding: 1rem;
+  margin: 2rem auto 0rem;
+  max-width: 40rem;
+}
+

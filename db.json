@@ -1,59 +1,39 @@
 {
   "projects": [
     {
-      "nameproject": "desenvolver site",
-      "budgetValue": "6666",
+      "nameproject": "new project",
+      "budgetValue": "90000",
       "categorie": "design",
-      "cost": 66,
+      "cost": 2664,
       "services": [
         {
           "nameService": "teste serviço",
-          "costValue": "66",
+          "costValue": "888",
+          "descriptionService": "teste 2",
+          "id": "b037c070-dc72-4284-a12c-d5bae3246b87"
+        },
+        {
+          "nameService": "teste serviço",
+          "costValue": "777",
           "descriptionService": "teste",
-          "id": "dfaa6c90-73c4-4578-b6cf-bddc711c74c4"
+          "id": "c26dbd20-c2f0-46a4-9507-aed939fa1e3e"
+        },
+        {
+          "nameService": "teste serviço",
+          "costValue": "999",
+          "descriptionService": "teste",
+          "id": "87f90c74-4890-41ab-9fa2-11544bad0e77"
         }
       ],
-      "id": 1
-    },
-    {
-      "nameproject": "desenvolver site",
-      "budgetValue": "888",
-      "categorie": "design",
-      "cost": 0,
-      "services": [],
-      "id": 2
-    },
-    {
-      "nameproject": "uuuu",
-      "budgetValue": "77777",
-      "categorie": "desenvolver site",
-      "cost": 0,
-      "services": [],
-      "id": 3
-    },
-    {
-      "nameproject": "rrruuuu",
-      "budgetValue": "66",
-      "categorie": "design",
-      "cost": 0,
-      "services": [],
-      "id": 4
-    },
-    {
-      "nameproject": "projeto 3",
-      "budgetValue": "66666",
-      "categorie": "design",
-      "cost": 0,
-      "services": [],
-      "id": 5
+      "id": 8
     },
     {
       "nameproject": "desenvolver design do site",
-      "budgetValue": "7777",
+      "budgetValue": "90000",
       "categorie": "design",
       "cost": 0,
       "services": [],
-      "id": 6
+      "id": 9
     }
   ],
   "categories": [

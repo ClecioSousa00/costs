@@ -6,6 +6,7 @@ import "./MyProject.css"
 import { ProjectCard } from "../../components/ProjectCard"
 import { Loader } from "../../components/Loader"
 import { Modal } from "../../components/Modal"
+import { axiosInstance } from "../../axios/axios.instance"
 
 export const MyProjects = () => {
 
@@ -15,18 +16,20 @@ export const MyProjects = () => {
     // const [idProjectDelete, setIdProjectDelete] = useState()
 
     useEffect(() => {
-
-        fetch('http://localhost:5000/projects', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-            .then(response => response.json())
-            .then(data => {
-                setProjects(data)
-            })
-            .catch(err => console.log('Erro'))
+        axiosInstance.get('')
+            .then(response => setProjects(response.data))
+            .catch(err => console.log('erro ao carregar meu projetos'))
+        // fetch('http://localhost:5000/projects', {
+        //     method: 'GET',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        // })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         setProjects(data)
+        //     })
+        //     .catch(err => console.log('Erro'))
     }, [])
 
     const generateCardsProject = (projects) => {
