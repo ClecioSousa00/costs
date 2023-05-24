@@ -12,13 +12,15 @@ export const MyProjects = () => {
 
     const [projects, setProjects] = useState([])
     const [isOpenModal, setIsOpenModal] = useState(false)
-    const [valueButtonModal, setValueButtonModal] = useState(false)
+    // const [valueButtonModal, setValueButtonModal] = useState(false)
     const [idProjectDelete, setIdProjectDelete] = useState()
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         axiosInstance.get('')
             .then(response => setProjects(response.data))
-            .catch(err => console.log('erro ao carregar meu projetos'))
+            .catch(() => console.log('erro ao carregar meu projetos'))
+            .finally(() => setIsLoading(false))
 
     }, [])
 
@@ -40,17 +42,23 @@ export const MyProjects = () => {
             setIsOpenModal(false)
         }
         if (value) {
-            setIsOpenModal(false)
 
-            fetch(`http://localhost:5000/projects/${idProjectDelete}`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
+            axiosInstance.delete(`${idProjectDelete}`)
                 .then(response => response.json())
                 .then(() => setProjects(projects.filter(project => project.id !== idProjectDelete)))
-                .catch(err => console.log("erro ao excluir"))
+                .catch(() => console.log("erro ao excluir"))
+                .finally(() => setIsOpenModal(false))
+
+            // fetch(`http://localhost:5000/projects/${idProjectDelete}`, {
+            //     method: 'DELETE',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            // })
+            //     .then(response => response.json())
+            //     .then(() => setProjects(projects.filter(project => project.id !== idProjectDelete)))
+            //     .catch(() => console.log("erro ao excluir"))
+            //     .finally(() => setIsOpenModal(false))
         }
     }
 
@@ -58,26 +66,25 @@ export const MyProjects = () => {
         setIsOpenModal(true)
         setIdProjectDelete(id)
         console.log(id);
-        if (!valueButtonModal) return
+        // if (!valueButtonModal) return
 
-        fetch(`http://localhost:5000/projects/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-            .then(response => response.json())
-            .then(() => setProjects(projects.filter(project => project.id !== id)))
-            .catch(err => console.log("erro ao excluir"))
+        // fetch(`http://localhost:5000/projects/${id}`, {
+        //     method: 'DELETE',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        // })
+        //     .then(response => response.json())
+        //     .then(() => setProjects(projects.filter(project => project.id !== id)))
+        //     .catch(err => console.log("erro ao excluir"))
     }
 
-    // if(!projects.length){
-    //     return <Loader/>
-    // }
+    if (isLoading) {
+        return <Loader />
+    }
 
     return (
         <>
-
             <main>
                 <div className="my_project">
                     <h1>Meus Projetos</h1>

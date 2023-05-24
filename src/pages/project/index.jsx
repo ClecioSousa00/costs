@@ -30,7 +30,7 @@ export const Project = () => {
                 setProject(response.data)
                 setServices(response.data.services)
             })
-            .catch(err => console.log('erro ao abrir o projeto'))
+            .catch(() => console.log('erro ao abrir o projeto'))
     }, [id])
     
 
@@ -41,7 +41,7 @@ export const Project = () => {
                 setProject(response.data)
                 setShowProjectForm(false)
             })
-            .catch(err => console.log('erro ao pegar o projeto para editar'))
+            .catch(() => console.log('erro ao pegar o projeto para editar'))
     }
 
     const createService = (project) => {
@@ -65,7 +65,7 @@ export const Project = () => {
                 setProject(response.data)
                 setShowServiceForm(false)
             })
-            .catch(err => console.log("erro ao criar serviço do projeto"))
+            .catch(() => console.log("erro ao criar serviço do projeto"))
     }
 
     const removeService = (id, cost) => {
@@ -76,11 +76,11 @@ export const Project = () => {
         projectUpdate.cost = parseFloat(projectUpdate.cost) - parseFloat(cost)
 
         axiosInstance.patch(`${projectUpdate.id}`,projectUpdate)
-            .then(response =>{
+            .then(() =>{
                 setProject(projectUpdate)
                 setServices(serviceUpdate)
             })
-            .catch(err => console.log("erro ao deletar projeto"))
+            .catch(() => console.log("erro ao deletar projeto"))
     }
 
     const toggleProjectForm = () => {
