@@ -1,4 +1,3 @@
-import { Header } from "../../components/Header"
 import "./Home.css"
 import imageHome from "../../assets/images/savings.svg"
 import { LinkButton } from "../../components/LinkButton"

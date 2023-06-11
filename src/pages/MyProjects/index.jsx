@@ -44,7 +44,6 @@ export const MyProjects = () => {
         if (value) {
 
             axiosInstance.delete(`${idProjectDelete}`)
-                .then(response => response.json())
                 .then(() => setProjects(projects.filter(project => project.id !== idProjectDelete)))
                 .catch(() => console.log("erro ao excluir"))
                 .finally(() => setIsOpenModal(false))
@@ -65,7 +64,6 @@ export const MyProjects = () => {
     const removeProjects = (id) => {
         setIsOpenModal(true)
         setIdProjectDelete(id)
-        console.log(id);
         // if (!valueButtonModal) return
 
         // fetch(`http://localhost:5000/projects/${id}`, {

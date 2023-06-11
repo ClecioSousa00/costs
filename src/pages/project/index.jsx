@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { v4 as uuidv4 } from "uuid"
-import {FaAngleLeft} from 'react-icons/fa'
+import { FaAngleLeft } from 'react-icons/fa'
 
 import { Form } from "../../components/Form"
 import { ServiceForm } from "../../components/ServiceForm"
@@ -12,6 +12,7 @@ import { ProjectDescription } from "../../components/ProjectDescription"
 import { Loader } from "../../components/Loader"
 import { axiosInstance } from "../../axios/axios.instance"
 import { Menssage } from "../../components/Menssage"
+import { Modal } from "../../components/Modal"
 
 export const Project = () => {
 
@@ -22,7 +23,10 @@ export const Project = () => {
     const [showServiceForm, setShowServiceForm] = useState(false)
     const [showMenssage, setShowMenssage] = useState(false)
 
-    
+    const [isOpenModal, setIsOpenModal] = useState(false)
+    const [idService, setIdService] = useState('')
+    const [costService, setCostService] = useState(0)
+
 
     useEffect(() => {
         axiosInstance.get(`${id}`)
@@ -32,7 +36,7 @@ export const Project = () => {
             })
             .catch(() => console.log('erro ao abrir o projeto'))
     }, [id])
-    
+
 
 
     const editProject = (project) => {
@@ -55,32 +59,56 @@ export const Project = () => {
             console.log("valor do serviço é maior que o orçamento");
             setShowMenssage(true)
             project.services.pop()
-            return 
+            return
         }
         setShowMenssage(false)
         project.cost = newCost
 
-        axiosInstance.patch(`${project.id}`,project)
-            .then(response =>{
+        axiosInstance.patch(`${project.id}`, project)
+            .then(response => {
                 setProject(response.data)
                 setShowServiceForm(false)
             })
             .catch(() => console.log("erro ao criar serviço do projeto"))
     }
 
-    const removeService = (id, cost) => {
-        console.log('fetch 4');
-        const serviceUpdate = project.services.filter(service => service.id !== id)
-        const projectUpdate = project
-        projectUpdate.services = serviceUpdate
-        projectUpdate.cost = parseFloat(projectUpdate.cost) - parseFloat(cost)
 
-        axiosInstance.patch(`${projectUpdate.id}`,projectUpdate)
-            .then(() =>{
-                setProject(projectUpdate)
-                setServices(serviceUpdate)
-            })
-            .catch(() => console.log("erro ao deletar projeto"))
+
+    const buttonModal = (value) => {
+        if (!value) {
+            setIsOpenModal(false)
+        }
+        if (value) {
+            const serviceUpdate = project.services.filter(service => service.id !== idService)
+            const projectUpdate = project
+            projectUpdate.services = serviceUpdate
+            projectUpdate.cost = parseFloat(projectUpdate.cost) - parseFloat(costService)
+
+            axiosInstance.patch(`${projectUpdate.id}`, projectUpdate)
+                .then(() => {
+                    setProject(projectUpdate)
+                    setServices(serviceUpdate)
+                })
+                .catch(() => console.log("erro ao deletar projeto"))
+                .finally(() => setIsOpenModal(false))
+        }
+    }
+
+    const removeService = (id, cost) => {
+        setIdService(id)
+        setCostService(cost)
+        setIsOpenModal(true)
+        // const serviceUpdate = project.services.filter(service => service.id !== id)
+        // const projectUpdate = project
+        // projectUpdate.services = serviceUpdate
+        // projectUpdate.cost = parseFloat(projectUpdate.cost) - parseFloat(cost)
+
+        // axiosInstance.patch(`${projectUpdate.id}`,projectUpdate)
+        //     .then(() =>{
+        //         setProject(projectUpdate)
+        //         setServices(serviceUpdate)
+        //     })
+        //     .catch(() => console.log("erro ao deletar projeto"))
     }
 
     const toggleProjectForm = () => {
@@ -88,7 +116,11 @@ export const Project = () => {
     }
     const toggleServiceForm = () => {
         setShowServiceForm(!showServiceForm)
+        setShowMenssage(false)
     }
+
+
+
 
     const generateCardServices = (services) => {
         return (
@@ -105,14 +137,14 @@ export const Project = () => {
         )
     }
 
-    if(!project.nameproject){
-        return <Loader/>
+    if (!project.nameproject) {
+        return <Loader />
     }
-   
+
     //fazer a div ser um componente
     return (
         <main className="edit_project">
-            <Link className="back_link" to="/Projetos"><FaAngleLeft/> Voltar</Link>
+            <Link className="back_link" to="/Projetos"><FaAngleLeft /> Voltar</Link>
             <div className="header_project">
                 <h1 className="title_project">{project.nameproject}</h1>
                 <button className="edit_btn" onClick={toggleProjectForm}>{showProjectForm ? 'Fechar' : 'Editar Projeto'}</button>
@@ -127,18 +159,20 @@ export const Project = () => {
                     <h2 className="title_services">Serviços</h2>
                     <button className="edit_btn" onClick={toggleServiceForm}>{!showServiceForm ? 'Adicionar serviço' : 'Fechar'}</button>
                 </div>
-            {showMenssage && <Menssage visible='visible'/>}
+                {showMenssage && <Menssage visible='visible' />}
                 <div>
                     {showServiceForm && (<ServiceForm handleSubmit={createService} projectData={project} />)}
                 </div>
-                
+
             </div>
-                <div className="container_services">
-                    {services.length ? generateCardServices(services) 
-                    : 
+            <div className="container_services">
+                {services.length ? generateCardServices(services)
+                    :
                     <h1 className="title_project_without">Você ainda não possui serviços adicionados</h1>
-                    }
-                </div>
+                }
+            </div>
+            {isOpenModal && <Modal buttonModal={buttonModal} />}
+
         </main>
     )
 }
