@@ -15,6 +15,8 @@ Este Projeto foi desenvolvindo com base no curso [hora de codar](https://www.you
 * React
 * Vite
 * Css
+* Axios
+* React-icons
 * Json-Server
 
 ## Deploy
