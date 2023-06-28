@@ -12,6 +12,7 @@
     width: 25rem;
     height: 30rem;
     margin: 3rem auto 0;
+    cursor:pointer
 }
 
 .card_image {
@@ -37,8 +38,6 @@
     transform: scale(3);
     transition: all 0.3s linear 0s;
 }
-
-
 
 
 .card_image img {

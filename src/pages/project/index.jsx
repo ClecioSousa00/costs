@@ -65,8 +65,8 @@ export const Project = () => {
         project.cost = newCost
 
         axiosInstance.patch(`${project.id}`, project)
-            .then(response => {
-                setProject(response.data)
+            .then(() => {
+                setProject(project)
                 setShowServiceForm(false)
             })
             .catch(() => console.log("erro ao criar serviço do projeto"))

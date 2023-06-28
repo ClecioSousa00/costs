@@ -23,9 +23,10 @@ export const ServiceForm = ({handleSubmit, projectData}) => {
         <>
             <form className="form" onSubmit={submitForm}>
                 <div>
-                    <label htmlFor="nameService">Projeto</label>
+                    <label htmlFor="nameService">* Serviço</label>
                     <input
                         className="form_input"
+                        required
                         type="text"
                         name="nameService"
                         placeholder="Nome do Serviço"
@@ -34,9 +35,10 @@ export const ServiceForm = ({handleSubmit, projectData}) => {
                 </div>
 
                 <div>
-                    <label htmlFor="costValue">Custo</label>
+                    <label htmlFor="costValue">* Custo</label>
                     <input
                         className="form_input"
+                        required
                         type="number"
                         name="costValue"
                         placeholder="Custo do Serviço"

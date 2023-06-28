@@ -16,8 +16,8 @@ export const Cards = () => {
                 </div>
                 <ul className="social_icons">
                     <Link to={"https://github.com/ClecioSousa00"} target="_blank"><FaGithub  className="item"/></Link>
-                    <Link to={"https://github.com/ClecioSousa00"} target="_blank"><FaLinkedinIn className="item"/></Link>
-                    <Link to={"https://github.com/ClecioSousa00"} target="_blank"><FaInstagram className="item"/></Link>
+                    <Link to={"https://www.linkedin.com/in/clécio-sousa"} target="_blank"><FaLinkedinIn className="item"/></Link>
+                    <Link to={"https://instagram.com/clecio_sousa_?igshid=NGExMml2YTkyZg=="} target="_blank"><FaInstagram className="item"/></Link>
                 </ul>
             </div>
         </div>

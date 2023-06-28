@@ -26,6 +26,7 @@ export const Form = ({handleSubmit, projectData, textBtn}) =>{
                 <label htmlFor="nameproject">Projeto</label>
                 <input
                     className="form_input"
+                    required
                     value={project.nameproject || ''}
                     type="text"
                     name="nameproject"
@@ -38,6 +39,7 @@ export const Form = ({handleSubmit, projectData, textBtn}) =>{
                 <label htmlFor="budgetValue">Orçamento</label>
                 <input
                     className="form_input"
+                    required
                     value={project.budgetValue || ''}
                     type="number"
                     name="budgetValue"

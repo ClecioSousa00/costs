@@ -5,6 +5,10 @@
     padding: .8rem;
     font-size: 2rem;
     color: var(--color-primary);
+    transition: all .4s ease-in-out;
+}
+.nav_bar_links:hover{
+    color:var(--color-menu-mobile)
 }
 
 @media screen and (max-width: 600px) {
