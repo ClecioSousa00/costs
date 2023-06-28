@@ -18,7 +18,3 @@ Este Projeto foi desenvolvindo com base no curso [hora de codar](https://www.you
 * Axios
 * React-icons
 * Json-Server
-
-## Deploy
-
-* [Acesse o projeto](https://costs-mfuxcgz1p-cleciosousa00.vercel.app)
