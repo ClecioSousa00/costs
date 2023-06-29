@@ -43,28 +43,33 @@
 .button_project{
     display: flex;
     justify-content: space-around;
+    gap: .5rem;
     /* margin-top: 3rem; */
 }
 
 
-.button_project button, .button_project a{
+.button_project button, .btnAdd, .btnEdit{
     padding: .5rem 1rem;
     display: flex;
     align-items: center;
     gap: .3rem;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: #fff;
     transition: all .3s ease-out;
     
 }
-.button_project a{
+.btnEdit{
   background-color: var(--color-menu-mobile);
+}
+
+.btnAdd{
+    background-color: var(--color-secondary);
 }
 .button_project button{
   background-color: rgb(211, 69, 69);
 }
 
 
-.button_project button:hover, .button_project a:hover{
+.button_project button:hover, .btnAdd:hover, .btnEdit:hover{
     transform: scale(1.1);
 }

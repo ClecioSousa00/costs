@@ -1,54 +1,5 @@
 {
-  "projects": [
-    {
-      "nameproject": "adota criança",
-      "budgetValue": "5000099999",
-      "categorie": "adoção",
-      "cost": 189,
-      "services": [
-        {
-          "nameService": "estago",
-          "costValue": "88",
-          "descriptionService": "i",
-          "id": "e86709d3-4168-4c32-b248-05ae163f1670"
-        },
-        {
-          "nameService": "teste serviçokkkkk",
-          "costValue": "99",
-          "descriptionService": "kk",
-          "id": "cb8e3f0a-efbb-4cf5-8960-1376afaf2027"
-        },
-        {
-          "nameService": "servico 3333",
-          "costValue": "2",
-          "descriptionService": "teste",
-          "id": "eee86897-7da2-4d97-ab07-cbc0dffbef75"
-        }
-      ],
-      "id": 1
-    },
-    {
-      "nameproject": "desenvolver site",
-      "budgetValue": "5",
-      "categorie": "desenvolvimento",
-      "cost": 5,
-      "services": [
-        {
-          "nameService": "servico 3333",
-          "costValue": "3",
-          "descriptionService": "teste 2",
-          "id": "03ea1b2a-af97-4e32-a80d-b503de1bf790"
-        },
-        {
-          "nameService": "servico 3",
-          "costValue": "2",
-          "descriptionService": "teste",
-          "id": "b22874d0-4d3c-4166-8cdf-53da9ac4f9d1"
-        }
-      ],
-      "id": 2
-    }
-  ],
+  "projects": [],
   "categories": [
     {
       "id": 1,
